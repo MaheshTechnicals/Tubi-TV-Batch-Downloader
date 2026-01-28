@@ -1,22 +1,33 @@
 # 📺 Tubi TV Batch Downloader (Google Colab)
 
-A **Google Colab–based Python script** that allows you to **batch download movies or TV show episodes from Tubi TV** directly into **Google Drive** using `yt-dlp`.
+A **Google Colab–based Python notebook** that allows you to **batch download movies or TV show episodes from Tubi TV** directly into **Google Drive** using **yt-dlp**.
 
-This script supports **episode listing, range-based selection, parallel downloads**, and automatic upload to Google Drive.
+This repository contains a ready-to-use **Jupyter Notebook (`TD.ipynb`)** designed specifically for Google Colab, with episode listing, range selection, and parallel downloads.
 
 ---
 
 ## 🚀 Features
 
-- Runs entirely on **Google Colab** (no local setup required)
-- Saves downloaded files directly to **Google Drive**
-- Automatically detects **show or playlist title**
-- Lists all available episodes before downloading
-- Allows **custom range selection** (example: `1-10`)
-- Supports **parallel downloads** (5 at a time by default)
-- Downloads best available **video + audio**
-- Automatically merges output into **MP4 format**
-- Clean and minimal progress output
+- ✅ Runs entirely on **Google Colab** (no local setup required)
+- 📁 Saves downloaded files directly to **Google Drive**
+- 🎬 Automatically detects **show / playlist title**
+- 📜 Lists all available episodes before downloading
+- 🔢 Allows **custom range selection** (example: `1-10`)
+- ⚡ Supports **parallel downloads** (5 at a time by default)
+- 🎧 Downloads best available **video + audio**
+- 📦 Automatically merges output into **MP4 format**
+- 🧼 Clean and minimal progress output
+
+---
+
+## 📁 Repository Contents
+
+```
+Tubi-TV-Batch-Downloader/
+├── TD.ipynb        # Main Google Colab notebook
+├── README.md       # Project documentation
+└── LICENSE         # MIT License
+```
 
 ---
 
@@ -24,7 +35,7 @@ This script supports **episode listing, range-based selection, parallel download
 
 You only need:
 
-- A Google account
+- A **Google account**
 - Access to **Google Colab**
 - Stable internet connection
 
@@ -43,9 +54,67 @@ All required Python packages are installed automatically inside Colab.
 
 ---
 
+## ▶️ How to Use (Recommended)
+
+### 1️⃣ Open the Notebook in Google Colab
+
+Upload `TD.ipynb` to Google Colab  
+**OR**  
+Open Colab → Upload Notebook → Select `TD.ipynb`
+
+---
+
+### 2️⃣ Run the Notebook
+
+- Run the single main cell
+- Authorize **Google Drive** when prompted
+
+---
+
+### 3️⃣ Paste the Tubi URL
+
+When asked:
+
+```
+Paste Tubi Link:
+```
+
+Example:
+```
+https://tubitv.com/series/300009876/example-show
+```
+
+---
+
+### 4️⃣ Select Episode Range
+
+The notebook will list episodes like:
+
+```
+1. Episode One
+2. Episode Two
+3. Episode Three
+```
+
+Enter your desired range:
+
+```
+1-10
+```
+
+---
+
+### 5️⃣ Download Starts 🚀
+
+- Downloads run **in parallel**
+- Files are saved automatically to Google Drive
+- Final success message appears when complete
+
+---
+
 ## 📂 Output Directory Structure
 
-Files are saved in Google Drive using the following structure:
+Downloaded files are saved to Google Drive as:
 
 ```
 Google Drive/
@@ -59,104 +128,42 @@ Google Drive/
 
 ---
 
-## 🧑‍💻 How to Use
+## ⚙️ Configuration (Optional)
 
-### 1️⃣ Open Google Colab
-Visit:  
-https://colab.research.google.com
-
----
-
-### 2️⃣ Create a New Notebook
-- Click **New Notebook**
-- Ensure runtime is set to **Python 3**
-
----
-
-### 3️⃣ Paste the Script
-Copy the Python script from this repository and paste it into **a single code cell**.
-
----
-
-### 4️⃣ Run the Cell
-- Execute the cell
-- Grant permission when Google Drive asks to mount
-
----
-
-### 5️⃣ Enter Tubi URL
-When prompted:
-
-```
-Paste Tubi Link:
-```
-
-Example:
-```
-https://tubitv.com/series/300009876/example-show
-```
-
----
-
-### 6️⃣ Select Episode Range
-The script lists all available episodes:
-
-```
-1. Episode One
-2. Episode Two
-3. Episode Three
-```
-
-Enter the desired range:
-```
-1-10
-```
-
----
-
-### 7️⃣ Download Starts 🚀
-- Up to 5 downloads run in parallel
-- Files are uploaded directly to Google Drive
-- Completion message appears when done
-
----
-
-## ⚙️ Configuration
-
-You can edit these values in the script:
+You may edit these values inside the notebook:
 
 ```python
 save_path_base = "/content/drive/MyDrive/TubiShows"
 ThreadPoolExecutor(max_workers=5)
 ```
 
-- Reduce `max_workers` if you encounter errors
-- Change `save_path_base` to customize the Drive folder
+- Reduce `max_workers` if downloads fail
+- Change `save_path_base` to customize storage location
 
 ---
 
 ## ⚠️ Limitations
 
-- DRM-protected Tubi content cannot be downloaded
-- Live streams are not supported
-- Excessive parallel downloads may trigger temporary throttling
-- Google Colab sessions may disconnect after long inactivity
+- ❌ DRM-protected Tubi content cannot be downloaded
+- ❌ Live streams are not supported
+- ⚠️ Too many parallel downloads may cause temporary throttling
+- ⚠️ Google Colab sessions may disconnect if idle too long
 
 ---
 
 ## 🧩 Troubleshooting
 
-**Google Drive not mounting?**  
-Re-run the cell and reauthorize Drive.
+**Drive not mounting?**  
+Re-run the notebook cell and reauthorize Drive.
 
-**Some downloads fail?**  
+**Some episodes fail?**  
 Lower parallel workers:
 ```python
 ThreadPoolExecutor(max_workers=3)
 ```
 
 **Show name not detected?**  
-Manual input will be requested — this is expected behavior.
+Manual input will be requested — this is expected for some playlists.
 
 ---
 
@@ -164,29 +171,30 @@ Manual input will be requested — this is expected behavior.
 
 This project is intended **for educational and personal use only**.
 
-- Do NOT redistribute copyrighted material
+- Do **NOT** redistribute downloaded content
 - Follow **Tubi TV’s Terms of Service**
-- The author is not responsible for misuse
+- The author is **not responsible for misuse**
 
-Support content creators whenever possible.
+Please support original content creators.
 
 ---
 
 ## ⭐ Contributing
 
-Contributions are welcome.
+Pull requests are welcome.
 
-Possible improvements:
+Ideas for improvements:
 - Resume interrupted downloads
-- Season/Episode auto-naming (S01E01)
-- Quality selection
+- Season / Episode auto-naming (S01E01)
+- Quality selection menu
 - Subtitle support
-- One-click Colab launcher
+- One-click “Open in Colab” badge
 
 ---
 
 ## 👤 Author
 
-**Mahesh Varma**
+**Mahesh Varma**  
+GitHub: https://github.com/MaheshTechnicals
 
-If you found this project useful, consider giving the repository a ⭐
+If this project helped you, consider giving the repository a ⭐
